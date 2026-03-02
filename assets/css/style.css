@@ -76,7 +76,7 @@ html {
 
 /* Banner 样式 */
 .hero-section {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,6 +112,85 @@ html {
 
 .banner-slide:nth-child(3) {
     background: url('../banner1.png') center/cover no-repeat;
+}
+
+/* 移动端图片优化 - 实现自动剪切 */
+@media (max-width: 768px) {
+    /* Banner图片自动剪切 */
+    .hero-section {
+        min-height: 100vh;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .banner-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .banner-slide {
+        background-position: center center;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .banner-slide .container {
+        padding-top: 80px;
+        padding-bottom: 40px;
+        position: relative;
+        z-index: 10;
+    }
+    
+    /* 服务卡片图片自动剪切 */
+    .service-card .h-48 {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .service-card .h-48 img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* 确保所有图片在手机上正确显示 */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* 小屏幕手机图片优化 */
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 80vh;
+    }
+    
+    .banner-slide {
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .service-card .h-48 {
+        height: 180px;
+    }
+    
+    .service-card .h-48 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 /* 按钮样式 */
