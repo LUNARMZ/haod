@@ -1,0 +1,790 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皓动传媒 - 专业的传媒服务提供商</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        secondary: '#E6C405',
+                        dark: '#333333',
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-dark">
+    <!-- 导航栏 -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center transition-all duration-300 hover:scale-105">
+                <img src="assets/logo.png" alt="皓动传媒" class="h-10 sm:h-12">
+                <span class="ml-2 sm:ml-3 text-lg sm:text-xl font-bold text-primary-900"></span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-6 sm:space-x-8">
+                <a href="#home" class="nav-link active text-primary-900 font-medium relative group px-2 py-2">
+                    首页
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-700 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="nav-link text-gray-600 hover:text-primary-900 font-medium relative group px-2 py-2">
+                    关于我们
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-700 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#services" class="nav-link text-gray-600 hover:text-primary-900 font-medium relative group px-2 py-2">
+                    业务范围
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-700 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-primary-900 font-medium relative group px-2 py-2">
+                    联系我们
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-700 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-primary-900 focus:outline-none transition-all duration-300 hover:rotate-90" id="menu-toggle">
+                <i class="fa fa-bars text-xl sm:text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div class="mobile-menu fixed top-0 left-0 h-full w-3/4 bg-white shadow-lg z-50 p-4 sm:p-6 transform -translate-x-full transition-transform duration-300" id="mobile-menu">
+            <div class="flex justify-between items-center mb-6 sm:mb-8">
+                <a href="#home" class="flex items-center">
+                    <img src="assets/logo.png" alt="皓动传媒" class="h-8 sm:h-10">
+                    <span class="ml-2 text-base sm:text-lg font-bold text-primary-900">皓动传媒</span>
+                </a>
+                <button class="text-gray-600 focus:outline-none transition-all duration-300 hover:rotate-90" id="close-menu">
+                    <i class="fa fa-times text-xl sm:text-2xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-3 sm:space-y-4">
+                <a href="#home" class="mobile-nav-link py-2 sm:py-3 px-3 sm:px-4 rounded-md text-primary-900 font-medium hover:bg-gray-100 transition-all duration-300">首页</a>
+                <a href="#about" class="mobile-nav-link py-2 sm:py-3 px-3 sm:px-4 rounded-md text-gray-600 font-medium hover:bg-gray-100 hover:text-primary-900 transition-all duration-300">关于我们</a>
+                <a href="#services" class="mobile-nav-link py-2 sm:py-3 px-3 sm:px-4 rounded-md text-gray-600 font-medium hover:bg-gray-100 hover:text-primary-900 transition-all duration-300">业务范围</a>
+                <a href="#contact" class="mobile-nav-link py-2 sm:py-3 px-3 sm:px-4 rounded-md text-gray-600 font-medium hover:bg-gray-100 hover:text-primary-900 transition-all duration-300">联系我们</a>
+            </nav>
+        </div>
+        
+        <!-- 移动端菜单背景遮罩 -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden opacity-0 transition-opacity duration-300" id="menu-overlay"></div>
+    </header>
+
+    <!-- 首页 Banner -->
+    <section id="home" class="hero-section h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="banner-container h-full w-full relative">
+            <!-- Banner 轮播图 -->
+            <div class="banner-slide active flex items-center justify-center transition-opacity duration-1000 ease-in-out">
+                <div class="container mx-auto px-4 text-center">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 sm:mb-8 leading-tight animate-fade-in">创意无限 · 传播价值</h1>
+                    <p class="text-lg sm:text-xl md:text-2xl text-black mb-8 sm:mb-12 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed animate-fade-in delay-300">皓动传媒 - 您值得信赖的品牌传播伙伴</p>
+                    <a href="#services" class="btn-primary bg-primary-700 hover:bg-primary-800 text-white font-medium py-3 px-8 rounded-md inline-block transition-all duration-300 hover:scale-105 animate-fade-in delay-600">了解我们的服务</a>
+                </div>
+            </div>
+            <div class="banner-slide flex items-center justify-center transition-opacity duration-1000 ease-in-out">
+                <div class="container mx-auto px-4 text-center">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 sm:mb-8 leading-tight animate-fade-in">专业团队 · 卓越创意</h1>
+                    <p class="text-lg sm:text-xl md:text-2xl text-black mb-8 sm:mb-12 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed animate-fade-in delay-300">用专业能力为品牌赋能，以创新思维引领行业</p>
+                    <a href="#services" class="btn-primary bg-primary-700 hover:bg-primary-800 text-white font-medium py-3 px-8 rounded-md inline-block transition-all duration-300 hover:scale-105 animate-fade-in delay-600">了解我们的服务</a>
+                </div>
+            </div>
+            <div class="banner-slide flex items-center justify-center transition-opacity duration-1000 ease-in-out">
+                <div class="container mx-auto px-4 text-center">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 sm:mb-8 leading-tight animate-fade-in">成功案例 · 实力见证</h1>
+                    <p class="text-lg sm:text-xl md:text-2xl text-black mb-8 sm:mb-12 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed animate-fade-in delay-300">多年行业经验，众多成功案例，值得您的信赖</p>
+                    <a href="#services" class="btn-primary bg-primary-700 hover:bg-primary-800 text-white font-medium py-3 px-8 rounded-md inline-block transition-all duration-300 hover:scale-105 animate-fade-in delay-600">查看我们的服务</a>
+                </div>
+            </div>
+            
+            <!-- Banner 控制按钮 -->
+            <button class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 rounded-full p-2 sm:p-3 text-black focus:outline-none transition-all duration-300 hover:scale-110" id="banner-prev">
+                <i class="fa fa-chevron-left text-lg sm:text-2xl"></i>
+            </button>
+            <button class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 rounded-full p-2 sm:p-3 text-black focus:outline-none transition-all duration-300 hover:scale-110" id="banner-next">
+                <i class="fa fa-chevron-right text-lg sm:text-2xl"></i>
+            </button>
+            
+            <!-- Banner 指示器 -->
+            <div class="absolute bottom-6 sm:bottom-10 left-0 right-0 flex justify-center space-x-2 sm:space-x-3">
+                <button class="banner-indicator active h-2 w-6 sm:w-8 rounded-full bg-white bg-opacity-70 hover:bg-opacity-100 focus:outline-none transition-all duration-300"></button>
+                <button class="banner-indicator h-2 w-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 focus:outline-none transition-all duration-300"></button>
+                <button class="banner-indicator h-2 w-2 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 focus:outline-none transition-all duration-300"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-16 sm:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 gap-10 sm:gap-12 items-center">
+                <div class="scroll-fade">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-900 mb-6 sm:mb-8 inline-block relative">
+                        关于我们
+                        <span class="absolute bottom-0 left-0 w-20 sm:w-24 h-1 bg-secondary"></span>
+                    </h2>
+                    <p class="text-gray-700 mb-5 sm:mb-6 leading-relaxed">
+                        皓动传媒成立于2015年，是一家专注于品牌策划、内容制作、媒体投放和活动执行的综合性传媒公司。我们拥有一支充满创意和激情的专业团队，致力于为客户提供全方位的品牌传播解决方案。
+                    </p>
+                    <p class="text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                        我们的核心价值观是：创新、专业、服务、共赢。我们坚持以客户为中心，以市场为导向，以创新为动力，以专业为保障，为客户提供优质的品牌传播服务。
+                    </p>
+                    <p class="text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                        多年来，我们为众多知名企业提供了专业的品牌传播服务，帮助客户提升品牌知名度、增强品牌影响力，实现商业价值最大化。我们的服务涵盖品牌策划、内容制作、媒体投放、活动执行等多个领域，满足客户的多样化需求。
+                    </p>
+                    <div class="mb-8 sm:mb-10">
+                        <h3 class="text-lg sm:text-xl font-bold text-primary-900 mb-4">我们的优势</h3>
+                        <ul class="space-y-3 sm:space-y-4">
+                            <li class="flex items-start transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check-circle text-primary-700 mt-1 mr-3"></i>
+                                <span class="text-gray-700">专业的团队：我们拥有一支充满创意和激情的专业团队，他们在各自领域都有着丰富的经验和深厚的专业知识。</span>
+                            </li>
+                            <li class="flex items-start transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check-circle text-primary-700 mt-1 mr-3"></i>
+                                <span class="text-gray-700">创新的理念：我们坚持以创新为动力，不断探索新的品牌传播方式和方法，为客户提供创新的品牌传播解决方案。</span>
+                            </li>
+                            <li class="flex items-start transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check-circle text-primary-700 mt-1 mr-3"></i>
+                                <span class="text-gray-700">优质的服务：我们坚持以客户为中心，为客户提供优质的品牌传播服务，帮助客户实现商业价值最大化。</span>
+                            </li>
+                            <li class="flex items-start transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check-circle text-primary-700 mt-1 mr-3"></i>
+                                <span class="text-gray-700">丰富的资源：我们拥有丰富的媒体资源和活动资源，能够为客户提供全方位的品牌传播服务。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                        <div class="text-center p-4 sm:p-6 bg-gray-50 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
+                            <div class="text-3xl sm:text-4xl font-bold text-primary-700 mb-2">10+</div>
+                            <p class="text-gray-700 text-sm sm:text-base">年行业经验</p>
+                        </div>
+                        <div class="text-center p-4 sm:p-6 bg-gray-50 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
+                            <div class="text-3xl sm:text-4xl font-bold text-primary-700 mb-2">100+</div>
+                            <p class="text-gray-700 text-sm sm:text-base">成功案例</p>
+                        </div>
+                        <div class="text-center p-4 sm:p-6 bg-gray-50 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
+                            <div class="text-3xl sm:text-4xl font-bold text-primary-700 mb-2">50+</div>
+                            <p class="text-gray-700 text-sm sm:text-base">专业团队</p>
+                        </div>
+                        <div class="text-center p-4 sm:p-6 bg-gray-50 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md">
+                            <div class="text-3xl sm:text-4xl font-bold text-primary-700 mb-2">95%</div>
+                            <p class="text-gray-700 text-sm sm:text-base">客户满意度</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招聘信息 -->
+    <section id="careers" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-6">招聘信息</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-gray-700 max-w-3xl mx-auto mb-8">
+                    我们正在寻找优秀的人才加入我们的团队，一起创造精彩的作品，实现个人价值。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 职位1 -->
+                <div class="job-card bg-white rounded-lg shadow-md overflow-hidden scroll-fade">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-primary-800">资深品牌策划师</h3>
+                            <span class="text-sm font-medium text-white bg-primary-700 px-3 py-1 rounded-full">全职</span>
+                        </div>
+                        <div class="flex items-center mb-4 text-gray-600">
+                            <i class="fa fa-map-marker-alt mr-2"></i>
+                            <span>河北省唐山市</span>
+                        </div>
+                        <div class="flex items-center mb-6 text-gray-600">
+                            <i class="fa fa-money mr-2"></i>
+                            <span>15K - 25K</span>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-2">职位描述</h4>
+                            <p class="text-gray-700 mb-4">
+                                负责品牌策划方案的制定和执行，包括品牌定位、品牌故事构建、营销活动策划等。
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                与客户沟通需求，制定品牌传播策略，协调团队资源，确保项目按时完成。
+                            </p>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-2">任职要求</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>5年以上品牌策划相关工作经验</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>有良好的创意思维和文字表达能力</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>熟悉品牌策划流程和方法</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>有团队管理经验者优先</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>能够独立完成品牌策划方案</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>有良好的沟通能力和团队协作精神</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="apply-job-btn w-full bg-primary-700 hover:bg-primary-800 text-white font-medium py-2 px-4 rounded-md" data-id="job1">
+                            立即申请
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 职位2 -->
+                <div class="job-card bg-white rounded-lg shadow-md overflow-hidden scroll-fade" data-delay="200">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-primary-800">高级内容编辑</h3>
+                            <span class="text-sm font-medium text-white bg-primary-700 px-3 py-1 rounded-full">全职</span>
+                        </div>
+                        <div class="flex items-center mb-4 text-gray-600">
+                            <i class="fa fa-map-marker-alt mr-2"></i>
+                            <span>河北省唐山市</span>
+                        </div>
+                        <div class="flex items-center mb-6 text-gray-600">
+                            <i class="fa fa-money mr-2"></i>
+                            <span>12K - 20K</span>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-2">职位描述</h4>
+                            <p class="text-gray-700 mb-4">
+                                负责品牌内容的创作和编辑，包括文案、图文、视频脚本等多种形式的内容。
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                制定内容创作计划，确保内容质量和风格统一，提高品牌影响力和用户粘性。
+                            </p>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-2">任职要求</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>3年以上内容创作相关工作经验</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>有良好的文字表达能力和创意思维</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>熟悉内容创作流程和方法</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>能够独立完成内容创作和编辑</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>有良好的沟通能力和团队协作精神</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="apply-job-btn w-full bg-primary-700 hover:bg-primary-800 text-white font-medium py-2 px-4 rounded-md" data-id="job2">
+                            立即申请
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 职位3 -->
+                <div class="job-card bg-white rounded-lg shadow-md overflow-hidden scroll-fade" data-delay="400">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-primary-800">新媒体运营专员</h3>
+                            <span class="text-sm font-medium text-white bg-primary-700 px-3 py-1 rounded-full">全职</span>
+                        </div>
+                        <div class="flex items-center mb-4 text-gray-600">
+                            <i class="fa fa-map-marker-alt mr-2"></i>
+                            <span>河北省唐山市</span>
+                        </div>
+                        <div class="flex items-center mb-6 text-gray-600">
+                            <i class="fa fa-money mr-2"></i>
+                            <span>10K - 15K</span>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-2">职位描述</h4>
+                            <p class="text-gray-700 mb-4">
+                                负责企业社交媒体账号的运营和管理，包括内容发布、互动回复、数据分析等。
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                制定新媒体运营策略，提高品牌曝光度和用户互动率，实现品牌传播目标。
+                            </p>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-900 mb-2">任职要求</h4>
+                            <ul class="text-gray-700 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>1-3年新媒体运营相关工作经验</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>熟悉各大社交媒体平台的运营规则</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>有良好的沟通能力和团队协作精神</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-primary-600 mr-2 mt-1"></i>
+                                    <span>熟悉数据分析工具者优先</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="apply-job-btn w-full bg-primary-700 hover:bg-primary-800 text-white font-medium py-2 px-4 rounded-md" data-id="job3">
+                            立即申请
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center scroll-fade" data-delay="600">
+                <p class="text-gray-700 mb-6">
+                    没有找到合适的职位？请将您的简历发送至我们的招聘邮箱，我们会在有合适职位时与您联系。
+                </p>
+                <a href="mailto:hr@haodcm.cn" class="bg-white border border-primary-700 text-primary-700 hover:bg-primary-50 font-medium py-3 px-8 rounded-md inline-block">
+                    发送简历
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 业务范围 -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 scroll-fade">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-900 mb-6 inline-block relative">
+                    业务范围
+                    <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-secondary"></span>
+                </h2>
+                <p class="text-gray-700 max-w-3xl mx-auto mb-8">
+                    我们提供全方位的品牌传播解决方案，从品牌策划到内容制作，从媒体投放到活动执行，满足您的各种需求。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 品牌策划 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden scroll-fade transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-48 bg-primary-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://p6-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/b337af77444e4d09a00110c11c251471~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=202603021726363A164CCAE3194DCE2890&amp;rrcfp=f06b921b&amp;x-expires=1775035663&amp;x-signature=UhJAc9%2FACSLkpXG6R6UjqFT3kyQ%3D" alt="品牌策划" class="h-32 transition-all duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-800 mb-4">品牌策划</h3>
+                        <p class="text-gray-700 mb-4">
+                            提供品牌定位、品牌形象设计、品牌故事构建等全方位品牌策划服务，帮助企业建立独特的品牌形象。
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            我们的品牌策划团队拥有丰富的行业经验和专业知识，能够为客户提供个性化的品牌策划解决方案。
+                        </p>
+                        <ul class="text-gray-600 mb-6 space-y-2">
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>品牌定位与策略</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>品牌视觉形象设计</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>品牌故事构建</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>品牌传播策略</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>品牌管理与维护</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary-700 hover:text-primary-900 font-medium inline-flex items-center transition-all duration-300 hover:translate-x-2">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 内容制作 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden scroll-fade transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-delay="200">
+                    <div class="h-48 bg-primary-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/6ff310208e22474bb347da666365a069~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=202603021726363A164CCAE3194DCE2890&amp;rrcfp=f06b921b&amp;x-expires=1775035662&amp;x-signature=4NPTAywhF%2FB4MOnk0eXaehon9Rs%3D" alt="内容制作" class="h-32 transition-all duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-800 mb-4">内容制作</h3>
+                        <p class="text-gray-700 mb-4">
+                            专业的内容创作团队，为您提供高质量的文字、图片、视频等多种形式的内容创作服务。
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            我们的内容制作团队拥有丰富的创作经验和专业技能，能够为客户提供个性化的内容制作解决方案。
+                        </p>
+                        <ul class="text-gray-600 mb-6 space-y-2">
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>文案创作</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>平面设计</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>视频拍摄与制作</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>动画制作</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>内容策划与创意</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary-700 hover:text-primary-900 font-medium inline-flex items-center transition-all duration-300 hover:translate-x-2">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 媒体投放 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden scroll-fade transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-delay="400">
+                    <div class="h-48 bg-primary-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/575a5085ccef4785b8523c915c7b4c24~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=202603021726363A164CCAE3194DCE2890&amp;rrcfp=f06b921b&amp;x-expires=1775035663&amp;x-signature=Z98PPFPWQ8P1903%2FbvfOA6XdyKk%3D" alt="媒体投放" class="h-32 transition-all duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-800 mb-4">媒体投放</h3>
+                        <p class="text-gray-700 mb-4">
+                            丰富的媒体资源和专业的投放策略，帮助您的品牌获得最大的曝光度和影响力。
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            我们的媒体投放团队拥有丰富的媒体资源和专业的投放经验，能够为客户提供个性化的媒体投放解决方案。
+                        </p>
+                        <ul class="text-gray-600 mb-6 space-y-2">
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>社交媒体营销</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>搜索引擎营销</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>内容营销</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>广告投放</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>投放效果评估</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary-700 hover:text-primary-900 font-medium inline-flex items-center transition-all duration-300 hover:translate-x-2">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 活动执行 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden scroll-fade transition-all duration-300 hover:shadow-xl hover:-translate-y-1" data-delay="600">
+                    <div class="h-48 bg-primary-700 flex items-center justify-center overflow-hidden">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/0d5d46df64c84f6285e0539e698246c0~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=202603021726363A164CCAE3194DCE2890&amp;rrcfp=f06b921b&amp;x-expires=1775035661&amp;x-signature=OXgki8dMx7%2F8wbbRDpNISYta9Pg%3D" alt="活动执行" class="h-32 transition-all duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary-800 mb-4">活动执行</h3>
+                        <p class="text-gray-700 mb-4">
+                            从活动策划到现场执行，我们提供一站式活动管理服务，确保活动圆满成功。
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            我们的活动执行团队拥有丰富的活动策划和执行经验，能够为客户提供个性化的活动执行解决方案。
+                        </p>
+                        <ul class="text-gray-600 mb-6 space-y-2">
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>活动策划与设计</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>活动执行与管理</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>活动物料制作</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>活动现场管理</span>
+                            </li>
+                            <li class="flex items-center transition-all duration-300 hover:translate-x-2">
+                                <i class="fa fa-check text-primary-600 mr-2"></i>
+                                <span>活动效果评估</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-primary-700 hover:text-primary-900 font-medium inline-flex items-center transition-all duration-300 hover:translate-x-2">
+                            了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 sm:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-900 mb-4 sm:mb-6">联系我们</h2>
+                <div class="w-20 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-gray-700 max-w-2xl sm:max-w-3xl mx-auto mb-6 sm:mb-8">
+                    欢迎随时联系我们，我们将竭诚为您提供专业的品牌传播服务解决方案。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-primary-900 mb-4 sm:mb-6">联系方式</h3>
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-start p-3 sm:p-4 bg-gray-50 rounded-lg transition-all duration-300 hover:shadow-md">
+                            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fa fa-map-marker text-primary-700 text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">公司地址</h4>
+                                <p class="text-gray-600">河北省唐山市路南区建国路100号</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 sm:p-4 bg-gray-50 rounded-lg transition-all duration-300 hover:shadow-md">
+                            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fa fa-phone text-primary-700 text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">联系电话</h4>
+                                <p class="text-gray-600">0315-12345678</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 sm:p-4 bg-gray-50 rounded-lg transition-all duration-300 hover:shadow-md">
+                            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fa fa-envelope text-primary-700 text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">电子邮箱</h4>
+                                <p class="text-gray-600">contact@haodcm.cn</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 sm:p-4 bg-gray-50 rounded-lg transition-all duration-300 hover:shadow-md">
+                            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                                <i class="fa fa-clock-o text-primary-700 text-lg sm:text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">工作时间</h4>
+                                <p class="text-gray-600">周一至周五 9:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-primary-50 p-6 sm:p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl sm:text-2xl font-bold text-primary-900 mb-4 sm:mb-6">关注我们</h3>
+                    <p class="text-gray-700 mb-6 sm:mb-8">
+                        关注我们的社交媒体账号，了解最新的行业动态和公司资讯
+                    </p>
+                    <div class="flex space-x-4 sm:space-x-6 justify-center">
+                        <a href="#" class="w-12 sm:w-16 h-12 sm:h-16 bg-primary-700 rounded-full flex items-center justify-center text-white hover:bg-primary-800 transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-weixin text-lg sm:text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-12 sm:w-16 h-12 sm:h-16 bg-primary-700 rounded-full flex items-center justify-center text-white hover:bg-primary-800 transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-weibo text-lg sm:text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-12 sm:w-16 h-12 sm:h-16 bg-primary-700 rounded-full flex items-center justify-center text-white hover:bg-primary-800 transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-linkedin text-lg sm:text-2xl"></i>
+                        </a>
+                        <a href="#" class="w-12 sm:w-16 h-12 sm:h-16 bg-primary-700 rounded-full flex items-center justify-center text-white hover:bg-primary-800 transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-instagram text-lg sm:text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6 sm:mt-8 text-center">
+                        <p class="text-gray-600 mb-3 sm:mb-4">期待与您的合作</p>
+                        <a href="mailto:contact@haodcm.cn" class="inline-block bg-primary-700 hover:bg-primary-800 text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-md transition-all duration-300 hover:scale-105">
+                            立即联系
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary-900 text-white py-10 sm:py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6">皓动传媒</h3>
+                    <p class="text-gray-300 text-sm sm:text-base mb-4 sm:mb-6">
+                        专注于品牌策划、内容制作、媒体投放和活动执行的综合性传媒公司。
+                    </p>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-weixin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-weibo text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-linkedin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fa fa-instagram text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6">快速链接</h3>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li>
+                            <a href="#home" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">首页</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">业务范围</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">联系我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6">服务项目</h3>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li>
+                            <a href="#services" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">品牌策划</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">内容制作</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">媒体投放</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="text-gray-300 hover:text-white transition-all duration-300 hover:translate-x-2">活动执行</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-4 sm:mb-6">联系我们</h3>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-300 text-sm sm:text-base">河北省唐山市路南区建国路100号</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-300 text-sm sm:text-base">0315-12345678</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-secondary mt-1 mr-3"></i>
+                            <span class="text-gray-300 text-sm sm:text-base">contact@haodcm.cn</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-300 text-sm sm:text-base">
+                    &copy; 2024 皓动传媒. 保留所有权
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top fixed bottom-8 right-8 bg-primary-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-800 hover:scale-110">
+        <i class="fa fa-chevron-up text-xl"></i>
+    </button>
+
+    <!-- 招聘申请模态框 -->
+    <div class="job-modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full mx-4 transform scale-95 transition-all duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-primary-900">申请职位</h3>
+                <button class="close-modal text-gray-500 hover:text-gray-900 focus:outline-none transition-all duration-300 hover:rotate-90">
+                    <i class="fa fa-times text-2xl"></i>
+                </button>
+            </div>
+            <form class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="modal-name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                        <input type="text" id="modal-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300">
+                    </div>
+                    <div>
+                        <label for="modal-email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+                        <input type="email" id="modal-email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300">
+                    </div>
+                </div>
+                <div>
+                    <label for="modal-phone" class="block text-gray-700 font-medium mb-2">电话</label>
+                    <input type="tel" id="modal-phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300">
+                </div>
+                <div>
+                    <label for="modal-resume" class="block text-gray-700 font-medium mb-2">简历</label>
+                    <input type="file" id="modal-resume" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300">
+                </div>
+                <div>
+                    <label for="modal-message" class="block text-gray-700 font-medium mb-2">留言</label>
+                    <textarea id="modal-message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-700 focus:border-transparent transition-all duration-300"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-primary-700 hover:bg-primary-800 text-white font-medium py-3 px-6 rounded-md transition-all duration-300 hover:scale-105">
+                    提交申请
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 自定义脚本 -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
